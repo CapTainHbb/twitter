@@ -1,0 +1,83 @@
+
+.login-page{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 500px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.login-page h2{
+	background: var(--twitter-background);
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.login-page input[type="text"],
+.login-page input[type="date"],
+.login-page input[type="datetime"],
+.login-page input[type="email"],
+.login-page input[type="number"],
+.login-page input[type="search"],
+.login-page input[type="time"],
+.login-page input[type="url"],
+.login-page input[type="password"],
+.login-page textarea,
+.login-page select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.login-page textarea{
+	resize:none;
+	overflow: hidden;
+}
+.login-page input[type="button"], 
+.login-page input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px var(--twitter-color);
+	-webkit-box-shadow: inset 0px 1px 0px 0px var(--twitter-color);
+	box-shadow: inset 0px 1px 0px 0px var(--twitter-color);
+	background-color: var(--twitter-color);
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.login-page input[type="button"]:hover, 
+.login-page input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color: #e8f5fe
+}
+
+.login-page-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+a:hover{
+	color: var(--twitter-color);
+	cursor: pointer;
+}

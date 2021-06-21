@@ -1,0 +1,101 @@
+"/api/fetch-tweets.php"
+request -->
+{
+    username="username",
+    other_tweets="true"
+}
+
+response is otherTweets=true-->
+{
+    success: true,
+    tweets:
+    [
+        {
+            username="captainhb",
+            tweet="blahblahblah",
+            time_stamp=123
+        },
+        {
+            username="naweed",
+            tweet="blahblahblah2",
+            time_stamp=12
+        },
+    ]
+}
+
+response is otherTweets=true-->
+{  
+    success: false,
+    tweets:
+    [
+    ]
+}
+
+response is otherTweets=false-->
+{
+    success: true,
+    tweets:
+    [
+        {
+            username="captainhb",
+            tweet="blahblahblah",
+            timestamp=123,
+            tweet_id=1
+        },
+        {
+            username="naweed",
+            tweet="blahblahblah2",
+            timestamp=12,
+            tweet_id: 2
+        },
+    ]
+}
+----------------------------------------------------------
+"/api/login.php"
+request -->
+{
+    username="captainhb",
+    password="12345"
+}
+
+response -->
+{
+    success: true
+}
+----------------------------------------------------------
+"/api/signup.php"
+request -->
+{
+    username="captainhb",
+    password="12345"
+}
+
+response -->
+{
+    isCreated: true
+}
+------------------------------------------------------------------------
+"/api/post-tweet.php"
+request -->
+{
+    username="captainhb",
+    tweet="blahblahblah"
+}
+
+response -->
+{
+    success: true
+}
+
+--------------------------------------------------------------------
+
+"/api/delete-tweet.php"
+request -->
+{
+    tweet_id: 123
+}
+
+response -->
+{
+    success: true
+}
