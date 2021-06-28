@@ -99,3 +99,19 @@ response -->
 {
     success: true
 }
+
+-----------------------------
+"/api/likes.php"
+
+request -->
+{
+    tweet_id: 3,
+    username: "captainhb"
+    increment: 0
+}
+
+response {
+    success: true,
+    is_liked_by_you: 1,
+    likes_count: 11
+}

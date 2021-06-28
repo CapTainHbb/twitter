@@ -3,10 +3,18 @@ import "./Post.css";
 import { Avatar } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
+    
+    this.state = {
+      likesCount: props.likesCount,
+      isLikedByYou: props.isLikedByYou
+    }
+    
   }
 
   deletePost = () => {
@@ -22,6 +30,55 @@ class Post extends React.Component {
             }
           );
   }
+
+  incrementLike = () => {
+    var fd = new FormData();
+    let j;
+    fd.append("tweet_id", this.props.tweetId);
+    fd.append("increment", 1);
+    fd.append("username", this.props.username);
+
+    fetch("http://localhost:8080/api/likes.php", {
+            method: 'POST',
+            body: fd
+            })
+          .then(response => response.json())
+          .then(result => j = result)
+          .then( () => 
+            this.onLikeComplete(j)
+          );
+  }
+  
+  decrementLike = () => {
+    var fd = new FormData();
+    let j;
+    fd.append("tweet_id", this.props.tweetId);
+    fd.append("increment", 0);
+    fd.append("username", this.props.username);
+
+    fetch("http://localhost:8080/api/likes.php", {
+            method: 'POST',
+            body: fd
+            })
+          .then(response => response.json())
+          .then(result => j = result)
+          .then( () => 
+            this.onLikeComplete(j)
+          );
+  }
+
+  onLikeComplete = (result) => {
+    if(result["success"]) {
+      this.setState({
+        isLikedByYou: result['is_liked_by_you'],
+        likesCount: result['likes_count']
+      })
+    }
+    else {
+      alert('cant complete like operation!');
+    }
+  }
+
 
   render() {
     return (
@@ -47,11 +104,16 @@ class Post extends React.Component {
               <AccessTimeIcon fontSize="small" />
               <span>{this.props.timeStamp}</span>
             </div>
+            <div>
+              
+            </div>
             {this.props.isUserTweet? <div className="post__delete" onClick={this.deletePost}>
                                         <DeleteIcon fontSize="small"/>
-                                      </div>: 
+                                      </div>:
                                       <div></div>
                                       }
+            {this.state.isLikedByYou? <div className="post__delete" onClick={this.decrementLike}><FavoriteIcon />{this.state.likesCount}</div>:
+            <div className="post__delete" onClick={this.incrementLike}><FavoriteBorderIcon />{this.state.likesCount}</div>}
             
             
           </div>

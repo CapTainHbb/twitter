@@ -13,9 +13,8 @@
         $sql = "INSERT INTO tweet(user_id, body) VALUES ". 
                 "(".$row["user_id"].", '".$_POST["tweet"]."')";
 
-        echo $sql;
         $dbc->query($sql);
-        // echo json_encode(array('success' => true));
+        echo json_encode(array('success' => true));
         
     }
     else {

@@ -7,6 +7,8 @@
         if(is_numeric($_POST['tweet_id'])){
             $query = mysqli_query($dbc, "DELETE FROM tweet WHERE tweet_id=".mysql_safe($_POST['tweet_id']));
             
+            $query = mysqli_query($dbc, "DELETE FROM likes WHERE tweet_id=".mysql_safe($_POST['tweet_id']));
+
             if(mysqli_affected_rows($dbc) > 0)
                 echo json_encode(array('success' => true));
             else

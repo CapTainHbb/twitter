@@ -44,8 +44,11 @@ class Feed extends React.Component {
                     text={tweet['tweet']}
                     timeStamp={tweet['time_stamp']}
                     isUserTweet={this.props.activeTabName == "Home"? false: true}
-                    tweetId={this.props.activeTabName == "Home"? 0: tweet['tweet_id']}
+                    tweetId={tweet['tweet_id']}
                     onDeleteTweetComplete={this.onDeleteTweetComplete}
+                    isLikedByYou={tweet['is_liked_by_you']}
+                    likesCount={tweet['likes_count']}
+                    
                 />
                 );    
             });

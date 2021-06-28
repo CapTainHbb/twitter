@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       isAuthenticated: false,
       username: "",
+      user_id: "",
       activeTabName: "Home"
     };
   }
