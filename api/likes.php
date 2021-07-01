@@ -14,9 +14,10 @@
             $sql = "INSERT  INTO likes(username, tweet_id) VALUES ". 
                     "('".$_POST["username"]."', ".$_POST["tweet_id"].")";
             $dbc->query($sql);
-    
+
             $sql = "SELECT * FROM likes WHERE username='".$_POST['username']."' ".
                     "AND tweet_id=".$_POST['tweet_id']." ";
+            
             $result = $dbc->query($sql);
             $row = $result->fetch_assoc();
             if($row) {

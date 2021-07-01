@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('mysql.inc.php');
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: Content-Type");
@@ -13,6 +14,8 @@
             "SET profile_photo='".$_POST['username']."' ".
             "WHERE username='".$_POST['username']."'";
             $dbc->query($sql);
+
+            $_SESSION["is_logged_in"] = true;
             header('Location: /index.php');
         }   
         else {

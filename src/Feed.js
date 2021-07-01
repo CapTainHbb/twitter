@@ -40,7 +40,8 @@ class Feed extends React.Component {
             result['tweets'].forEach(tweet => {
                 posts.push(
                     <Post 
-                    username={tweet['username']} 
+                    username_of_tweet={tweet['username']}
+                    username={this.props.username} 
                     text={tweet['tweet']}
                     timeStamp={tweet['time_stamp']}
                     isUserTweet={this.props.activeTabName == "Home"? false: true}

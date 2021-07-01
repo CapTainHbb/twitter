@@ -89,7 +89,7 @@ class Post extends React.Component {
   }
 
   render() {
-    var imageUrl = "http://localhost:8080/photos/" + this.props.username + ".jpg";
+    var imageUrl = "http://localhost:8080/photos/" + this.props.username_of_tweet + ".jpg";
     return (
       <div className="post" >
         <div className="post__avatar">
@@ -102,7 +102,7 @@ class Post extends React.Component {
             <div className="post__headerText">
               <h3>
                 <span className="post__headerSpecial">@
-                  {this.props.username}
+                  {this.props.username_of_tweet}
                 </span>
               </h3>
             </div>

@@ -12,6 +12,17 @@ class Sidebar extends React.Component{
     }
     
     logoutHandler = () => {
+        var fd = new FormData();
+        fd.append("username", this.props.username);
+
+        fetch("http://localhost:8080/api/logout.php", {
+            method: 'POST',
+            body: fd
+            })
+          .then(response => response.json())
+          .then()
+          .then();
+
         this.props.onLogout(false, "");
     }
 
