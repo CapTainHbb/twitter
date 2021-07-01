@@ -41,12 +41,14 @@ response is otherTweets=false-->
             tweet="blahblahblah",
             timestamp=123,
             tweet_id=1
+            profile_photo=/photos/captainhb.jpg
         },
         {
             username="naweed",
             tweet="blahblahblah2",
             timestamp=12,
             tweet_id: 2
+            profile_photo:/photos/default.jpg
         },
     ]
 }
@@ -115,3 +117,24 @@ response {
     is_liked_by_you: 1,
     likes_count: 11
 }
+---------------------------
+"/api/upload_photo.php"
+
+request {
+    username: "captainhb",
+    imagefile
+}
+
+---------------------------
+"/api/delete_account.php"
+
+request {
+    username: "captainhb",
+}
+
+
+
+---------------------------
+"/api/upload_photo.php"
+
+

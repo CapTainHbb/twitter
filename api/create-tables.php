@@ -5,7 +5,8 @@
     $sql = "CREATE TABLE user (
     user_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL UNIQUE,
-    password VARCHAR(30) NOT NULL
+    password VARCHAR(30) NOT NULL,
+    profile_photo VARCHAR(30) default 'default_avatar'
     )";
 
     if ($dbc->query($sql) === TRUE) {

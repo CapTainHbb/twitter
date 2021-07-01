@@ -1,7 +1,8 @@
 import React from "react";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import HomeIcon from "@material-ui/icons/Home";
-import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';import './Sidebar.css';
+import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
+import './Sidebar.css';
 import SidebarOption from './SidebarOption';
 import { Button } from "@material-ui/core";
 
@@ -29,11 +30,12 @@ class Sidebar extends React.Component{
                 <SidebarOption activeTabName={this.props.activeTabName} Icon={HomeIcon} text="Home" onClick={this.tabChangeHandler}/>
                 {/* <SidebarOption activeTabName={this.props.activeTabName} Icon={PeopleOutlineIcon} text="Followers And Followings" onClick={this.tabChangeHandler} /> */}
                 <SidebarOption activeTabName={this.props.activeTabName} Icon={TwitterIcon} text="My Tweets" onClick={this.tabChangeHandler} />
+                <SidebarOption activeTabName={this.props.activeTabName} Icon={PeopleOutlineIcon} text="Profile" onClick={this.tabChangeHandler} />
 
                 <Button variant="outlined" 
                 className="sidebar__tweet" 
                 onClick={this.logoutHandler}
-                 fullWidth>
+                 fullWidth> 
                     Log out
                 </Button>
             </div>

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('mysql.inc.php');
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: Content-Type");
@@ -12,6 +13,8 @@
         $result = $dbc->query($sql);
         $row = $result->fetch_assoc();
         if($row) {
+            $_SESSION["is_logged_in"] = true;
+            $_SESSION["username"] = $_POST["username"];
             echo json_encode(array('success' => true));
         }
         else {

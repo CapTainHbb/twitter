@@ -31,13 +31,23 @@ class TweetBox extends React.Component {
         });
     }
 
+    imageExists = (image_url) => {
+        var http = new XMLHttpRequest();
+    
+        http.open('HEAD', image_url, false);
+        http.send();
+        return http.status != 404;
+      }
 
     render() {
+        var imageUrl = "http://localhost:8080/photos/" + this.props.username + ".jpg";
         return (
             <div className="tweetBox">
                 <form>
                     <div className="tweetBox__input">
-                        <Avatar />
+                    {this.imageExists(imageUrl)? <img src={imageUrl} className="avatar_tweet_box"/>
+                    :<img src={"http://localhost:8080/photos/default_avatar.jpg"} className="avatar_tweet_box"/> }
+        
                         <input placeholder="What's hapenning?" type="text" onChange={this.onChangeHandler}></input>
                     </div>
                     <div className="tweetBox__buttons">

@@ -79,12 +79,23 @@ class Post extends React.Component {
     }
   }
 
+  imageExists = (image_url) => {
+
+    var http = new XMLHttpRequest();
+
+    http.open('HEAD', image_url, false);
+    http.send();
+    return http.status != 404;
+  }
 
   render() {
+    var imageUrl = "http://localhost:8080/photos/" + this.props.username + ".jpg";
     return (
       <div className="post" >
         <div className="post__avatar">
-          <Avatar />
+          {this.imageExists(imageUrl)? <img src={imageUrl} className="avatar_post"/>
+          :<img src={"http://localhost:8080/photos/default_avatar.jpg"} className="avatar_post"/> }
+          
         </div>
         <div className="post__body">
           <div className="post__header">

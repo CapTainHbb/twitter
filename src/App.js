@@ -13,6 +13,7 @@ class App extends React.Component {
       user_id: "",
       activeTabName: "Home"
     };
+    this.checkIfLoggedIn();
   }
 
   onFinishCallback = (isAuthenticated, username_param) => {
@@ -31,7 +32,27 @@ class App extends React.Component {
     else if (tabName == "My Tweets") {
       this.setState({activeTabName: "My Tweets"});
     }
+    else if(tabName = "Profile") {
+      this.setState({activeTabName: "Profile"});
+    }
     
+  }
+
+  checkIfLoggedIn = () => {
+    let j;
+    fetch("http://localhost:8080/api/check-logged-in.php")
+                .then(response => response.json())
+                .then(result => {
+                    j = result;
+                })
+                .then(() => {
+                  if(j["is_logged_in"]) {
+                    this.setState({isAuthenticated: true, username: j["username"]});
+                  }
+                  else {
+                    this.setState({isAuthenticated: false});
+                  }
+                });
   }
 
   render() {

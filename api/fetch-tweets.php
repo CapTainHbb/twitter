@@ -7,14 +7,14 @@
         $is_liked_by_you = 0;
         
         if($_GET["other_tweets"] == "false") {
-            $sql = "SELECT username, body, time_stamp, tweet_id, likes_count ". 
+            $sql = "SELECT username, body, time_stamp, tweet_id, likes_count, profile_photo ". 
                 " FROM tweet INNER JOIN user ON ".
                 " tweet.user_id = user.user_id ".
                 " WHERE username='". $_GET["username"] ."' ".
                 " ORDER BY time_stamp DESC";
         }
         else {
-            $sql = "SELECT username, body, time_stamp, tweet_id, likes_count ". 
+            $sql = "SELECT username, body, time_stamp, tweet_id, likes_count, profile_photo ". 
                 "FROM tweet INNER JOIN user ON ".
                 "tweet.user_id = user.user_id ORDER BY time_stamp DESC";
         }
@@ -40,7 +40,8 @@
                     'time_stamp'=>$row['time_stamp'],
                     'tweet_id'=>$row['tweet_id'],
                     'is_liked_by_you'=>$is_liked_by_you,
-                    'likes_count'=>$row['likes_count']
+                    'likes_count'=>$row['likes_count'],
+                    'profile_photo'=>$row['profile_photo']
                     ));
                 }
                 echo json_encode(array('success' => true, 'tweets' => $tweets));
