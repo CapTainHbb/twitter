@@ -17,6 +17,10 @@ class FeedHeader extends React.Component {
         else if(this.props.activeTabName == "My Tweets") {
             text = <h2>{this.props.activeTabName}!</h2>;
         }
+        else if(this.props.activeTabName == "Profile") {
+            text = <h2>{this.props.activeTabName}</h2>
+        }
+
         return (
         <div className="feed_header">
             {text}
